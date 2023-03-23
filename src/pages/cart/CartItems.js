@@ -136,8 +136,8 @@ const CartItems = () => {
             <p>Order total price: {orderTotalvalue}$ </p>
 
             {!user && <p>To place the order please login</p>}
-
             {handlesetPlaceOrderButton}
+
             {placeOrderButton && (
               <p>Please add a tour first to be able to place the order</p>
             )}
