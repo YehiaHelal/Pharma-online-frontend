@@ -74,14 +74,13 @@ export const LoginAction = async ({ request }) => {
     {
       submission,
     },
-    {
-      withCredentials: true,
-      headers: {
-        // "Access-Control-Allow-Origin": "*",
-        // "Content-Type": "application/json",
-        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-      },
-    }
+    // {
+    //   withCredentials: true,
+    //   headers: {
+    //     "Access-Control-Allow-Origin": "*",
+    //     "Content-Type": "application/json",
+    //   },
+    // }
   );
 
   // if (submission.message.length < 10) {
