@@ -51,7 +51,6 @@ const CartItems = () => {
   // to send the order place on the backend
   const CartFunctionHandler = async () => {
     // fetch request and if ok the cookie will be removed
-    
 
     const response = await axios.post(
       "https://pharma-online-api-production.up.railway.app/api/orders/cartorder",
@@ -59,8 +58,11 @@ const CartItems = () => {
       {
         withCredentials: true,
         headers: {
+          "Access-Control-Allow-Credentials": "true",
           "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
+          "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+          "Access-Control-Allow-Headers":
+            "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
         },
       }
     );
