@@ -69,19 +69,27 @@ export const LoginAction = async ({ request }) => {
     password: data.get("password"),
   };
 
-  const datas = await axios.post(
-    "https://pharma-online-api-production.up.railway.app/api/users/login",
-    {
+  const datas = await axios({
+    method: "POST",
+    url: "https://pharma-online-api-production.up.railway.app/api/users/login",
+    data: {
       submission,
     },
-    {
-      withCredentials: true,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  });
+
+  // const datas = await axios.post(
+  //   "https://pharma-online-api-production.up.railway.app/api/users/login",
+  //   {
+  //     submission,
+  //   },
+  //   {
+  //     withCredentials: true,
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //       "Content-Type": "application/json",
+  //     },
+  //   }
+  // );
 
   // if (submission.message.length < 10) {
   //   return { error: "Message must be over 10 chars long." };
