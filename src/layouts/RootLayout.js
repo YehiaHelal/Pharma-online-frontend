@@ -109,7 +109,12 @@ export default function RootLayout() {
           ></input>
           <NavLink
             className="search-button"
-            to={searchedNameobject ? "http://localhost:3000/" + id : ""}
+            to={
+              searchedNameobject
+                ? "https://pharma-online-api-production.up.railway.app/api/items/" +
+                  id
+                : ""
+            }
           >
             Search
           </NavLink>
