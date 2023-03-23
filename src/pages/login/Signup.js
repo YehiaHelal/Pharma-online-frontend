@@ -76,6 +76,8 @@ export const SignupAction = async ({ request }) => {
     }
   );
 
+  console.log(datas);
+
   // return 1;
   // if (res.status.ok) {
 
