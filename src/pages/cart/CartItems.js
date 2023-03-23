@@ -51,6 +51,8 @@ const CartItems = () => {
   // to send the order place on the backend
   const CartFunctionHandler = async () => {
     // fetch request and if ok the cookie will be removed
+    
+
     const response = await axios.post(
       "https://pharma-online-api-production.up.railway.app/api/orders/cartorder",
       { OrderDetails },
