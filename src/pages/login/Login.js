@@ -74,13 +74,13 @@ export const LoginAction = async ({ request }) => {
     {
       submission,
     },
-    // {
-    //   withCredentials: true,
-    //   headers: {
-    //     "Access-Control-Allow-Origin": "*",
-    //     "Content-Type": "application/json",
-    //   },
-    // }
+    {
+      withCredentials: true,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    }
   );
 
   // if (submission.message.length < 10) {
