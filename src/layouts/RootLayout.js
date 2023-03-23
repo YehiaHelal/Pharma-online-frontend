@@ -111,8 +111,7 @@ export default function RootLayout() {
             className="search-button"
             to={
               searchedNameobject
-                ? "https://pharma-online-api-production.up.railway.app/api/items/" +
-                  id
+                ? "https://pharma-online-api-production.up.railway.app/" + id
                 : ""
             }
           >
