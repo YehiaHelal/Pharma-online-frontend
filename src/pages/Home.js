@@ -71,7 +71,7 @@ const Home = () => {
       <div className="body">
         <div className="offers">
           <div>
-            <a href="http://localhost:3000/offers">
+            <a href="https://pharma-online-frontend-production.up.railway.app/offers">
               <div className="first-offer">
                 <img
                   src={require(`./../img/offers/our-app.webp`)}
@@ -87,7 +87,7 @@ const Home = () => {
           </div>
 
           <div>
-            <a href="http://localhost:3000/offers">
+            <a href="https://pharma-online-frontend-production.up.railway.app/offers">
               <div className="second-offer">
                 {slidingImagesOffer === 1 && (
                   <img
@@ -132,7 +132,7 @@ const Home = () => {
         </div>
 
         <div className="grid-container-catogeries-img">
-          <a href="http://localhost:3000/medications">
+          <a href="https://pharma-online-frontend-production.up.railway.app/medications">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-1.webp`)}
@@ -141,7 +141,7 @@ const Home = () => {
               <p>Medications</p>
             </div>
           </a>
-          <Link to="http://localhost:3000/skinCare">
+          <Link to="https://pharma-online-frontend-production.up.railway.app/skinCare">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-2.webp`)}
@@ -150,7 +150,11 @@ const Home = () => {
               <p>Skin Care</p>
             </div>
           </Link>
-          <Link to={"http://localhost:3000/dailyEssentials"}>
+          <Link
+            to={
+              "https://pharma-online-frontend-production.up.railway.app/dailyEssentials"
+            }
+          >
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-4.webp`)}
@@ -159,7 +163,11 @@ const Home = () => {
               <p>Daily Essentials</p>
             </div>
           </Link>
-          <Link to={"http://localhost:3000/vitaminsAndSupplements"}>
+          <Link
+            to={
+              "https://pharma-online-frontend-production.up.railway.app/vitaminsAndSupplements"
+            }
+          >
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-3.webp`)}
@@ -176,7 +184,7 @@ const Home = () => {
 
         <div>
           <a
-            href="http://localhost:3000/offers"
+            href="https://pharma-online-frontend-production.up.railway.app/offers"
             className="grid-container-offers2"
           >
             <img
@@ -210,7 +218,12 @@ const Home = () => {
               allItemsOnThirtyPercentOffer.map((item) => {
                 return (
                   <div className="box" key={item._id}>
-                    <a href={"http://localhost:3000/" + item._id}>
+                    <a
+                      href={
+                        "https://pharma-online-frontend-production.up.railway.app/" +
+                        item._id
+                      }
+                    >
                       <img
                         src={require(`./../img/products/${item.image}`)}
                         alt="imageos"
