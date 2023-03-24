@@ -1033,6 +1033,9 @@ div.error-Search-main {
     gap: 0;
     font-size: 10px;
   }
+  .cart-page-main {
+    width: 400px;
+  }
   .grid-container-footer .sorting-main,
   .sorting-icons,
   .searched-each-item,
@@ -1156,5 +1159,8 @@ div.error-Search-main {
     padding: 5px;
     gap: 5px;
     margin-left: 5px;
+  }
+  .cart-page-main {
+    width: 350px;
   }
 }
