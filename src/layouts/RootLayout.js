@@ -12,12 +12,13 @@ export default function RootLayout() {
   const [title, setTitle] = useState("");
   const { allItems, dispatcho } = useFetchItemsContext();
   const { user, dispatchUser } = useAuthContext();
+  const [showSearchError, setShowSearchError] = useState(false);
   const navTo = useNavigate();
 
   const LogoutFunctionHandler = async () => {
     // fetch request and if ok the cookie will be removed
     const datas = await axios.post(
-      "https://pharma-online-api-production.up.railway.app/api/users/logout",
+      "http://localhost:4000/api/users/logout",
       {},
       {
         withCredentials: true,
@@ -50,12 +51,17 @@ export default function RootLayout() {
     }
   }, []);
 
-  const searchedNameobject = allItems.find(
+  let searchedNameobject;
+
+  searchedNameobject = allItems.find(
     (item) => item.name.toLowerCase() === title.toLowerCase()
   );
 
-  console.log();
-  console.log();
+  // useEffect(() => {
+  //   if (searchedNameobject === undefined) {
+  //     setShowSearchError(false);
+  //   }
+  // }, [searchedNameobject]);
 
   let id;
   if (searchedNameobject) {
@@ -63,6 +69,14 @@ export default function RootLayout() {
 
     id = _id;
   }
+
+  // the search functionality ^ _ ^
+
+  useEffect(() => {
+    if (searchedNameobject) {
+      setShowSearchError(false);
+    }
+  }, [searchedNameobject]);
 
   const localStorageCartAllItems = JSON.parse(
     localStorage.getItem("cartItems")
@@ -109,12 +123,12 @@ export default function RootLayout() {
           ></input>
           <NavLink
             className="search-button"
-            to={
-              searchedNameobject
-                ? "https://pharma-online-frontend-production.up.railway.app/" +
-                  id
-                : ""
-            }
+            to={searchedNameobject ? "http://localhost:3000/" + id : ""}
+            onClick={() => {
+              if (searchedNameobject === undefined) {
+                setShowSearchError(true);
+              }
+            }}
           >
             Search
           </NavLink>
@@ -124,6 +138,13 @@ export default function RootLayout() {
             {/* {cartNumber === 0 ? "" : cartNumber} */}
           </NavLink>
         </nav>
+        <div className="error-Search-main">
+          {showSearchError && (
+            <div className="error-Search">
+              "no item was found matching that input"
+            </div>
+          )}
+        </div>
 
         {/* <Breadcrumbs /> */}
       </header>

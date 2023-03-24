@@ -14,10 +14,45 @@ export default function Login() {
   const data = useActionData();
   const { user, dispatchUser } = useAuthContext();
   const navTo = useNavigate();
+
   const [showPopup, setShowPopup] = useState(false);
+  const [showErrorPopupfrontend, setErrorShowPopupfrontend] = useState(false);
+  const [showBackendErrorPopup, setShowBackendErrorPopup] = useState(false);
+  const [showBackendErrorMessage, setShowBackendErrorMessage] = useState();
+
+  console.log(user);
+
+  console.log(data);
 
   useEffect(() => {
-    if (data) {
+    if (data === "password error") {
+      // count.current = count.current + 1;
+      // console.log(count);
+      setErrorShowPopupfrontend(true);
+      setShowBackendErrorPopup(false);
+    }
+    // if (data !== undefined && data !== "error") {
+    //   setShowPopup(true);
+    // }
+    if (data === "incorrect password") {
+      setErrorShowPopupfrontend(false);
+      setShowBackendErrorPopup(true);
+      setShowBackendErrorMessage("incorrect password");
+      console.log(showBackendErrorMessage);
+    }
+
+    if (data === "No such user found") {
+      setErrorShowPopupfrontend(false);
+      setShowBackendErrorPopup(true);
+      setShowBackendErrorMessage("No user was found matching that email");
+      console.log(showBackendErrorMessage);
+    }
+
+    if (typeof data === "object") {
+      setShowBackendErrorPopup(false);
+      setErrorShowPopupfrontend(false);
+
+      console.log("we are in");
       dispatchUser({ type: "LOGIN", payload: data });
 
       localStorage.setItem("user", JSON.stringify(data));
@@ -50,6 +85,16 @@ export default function Login() {
               <p>Login was successful, Redirecting in 1 second...</p>
             )}
 
+            {showErrorPopupfrontend && (
+              <div className="error">
+                Password must be longer than 6 characters long
+              </div>
+            )}
+
+            {showBackendErrorPopup && (
+              <div className="error">{showBackendErrorMessage}</div>
+            )}
+
             {/* {data && data.error && <p>{data.error}</p>} */}
           </Form>
         </div>
@@ -69,47 +114,52 @@ export const LoginAction = async ({ request }) => {
     password: data.get("password"),
   };
 
-  // const datas = await axios({
-  //   method: "POST",
-  //   url: "https://pharma-online-api-production.up.railway.app/api/users/login",
-  //   data: {
-  //     submission,
-  //   },
-  // });
+  if (submission.password.length < 6) {
+    // "password must be longer than 6 characters"
+    console.log("password must be longer than 6 characters long");
+    const errorSet = "password error";
+    return errorSet;
+  }
 
-  const datas = await axios.post(
-    "https://pharma-online-api-production.up.railway.app/api/users/login",
-    {
-      submission,
-    },
-    {
-      withCredentials: true,
-      headers: {
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-        "Access-Control-Allow-Headers":
-          "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+  try {
+    const datas = await axios.post(
+      "http://localhost:4000/api/users/login",
+      {
+        submission,
       },
-      // headers: {
-      //   "Access-Control-Allow-Origin": "*",
-      //   "Content-Type": "application/json",
-      // },
-    }
-  );
+      {
+        withCredentials: true,
+        headers: {
+          "Access-Control-Allow-Credentials": "true",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+          "Access-Control-Allow-Headers":
+            "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+        },
+        // headers: {
+        //   "Access-Control-Allow-Origin": "*",
+        //   "Content-Type": "application/json",
+        // },
+      }
+    );
 
-  // if (submission.message.length < 10) {
-  //   return { error: "Message must be over 10 chars long." };
-  // }
+    // if (submission.message.length < 10) {
+    //   return { error: "Message must be over 10 chars long." };
+    // }
 
-  // send your post request
-  return datas.data;
-  // return ;
+    // send your post request
+    return datas;
+  } catch (error) {
+    console.log(error.response.data[0]);
+    return error.response.data.error;
+  }
+
+  return 1;
 };
 // );
 
 // const sendingRequest = async () => {
-//   const response = await fetch("https://pharma-online-api-production.up.railway.app/api/users/");
+//   const response = await fetch("http://localhost:4000/api/users/");
 
 //   const json = await response.json();
 

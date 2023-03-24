@@ -34,7 +34,7 @@ import Profile, { ProfileAction, ProfileLoader } from "./pages/profile/Profile";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
+    <Route path="/" element={<RootLayout />} errorElement={<NotFound />}>
       <Route index element={<Home />} />
 
       <Route path="signup" element={<Signup />} action={SignupAction} />
@@ -44,21 +44,23 @@ const router = createBrowserRouter(
         element={<Profile />}
         loader={ProfileLoader}
         action={ProfileAction}
+        errorElement={<NotFound />}
       />
       <Route path="contact" element={<Contact />} action={contactAction} />
 
-      <Route
-        path="medications"
-        element={<Medications />}
-        loader={MedicationsPageLoader}
-      />
+      <Route path="medications" element={<Medications />} />
       <Route path="dailyEssentials" element={<DailyEssentials />} />
       <Route path="skinCare" element={<SkinCare />} />
       <Route
         path="vitaminsAndSupplements"
         element={<VitaminsAndSupplements />}
       />
-      <Route path=":id" element={<ItemSearch />} loader={itemSearchLoader} />
+      <Route
+        path=":id"
+        element={<ItemSearch />}
+        loader={itemSearchLoader}
+        errorElement={<NotFound />}
+      />
       <Route path="favourite" element={<FavouriteItems />} />
       <Route path="cart" element={<CartItems />} />
 

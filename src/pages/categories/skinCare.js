@@ -8,9 +8,7 @@ const SkinCare = () => {
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch(
-        "https://pharma-online-api-production.up.railway.app/api/items/"
-      );
+      const response = await fetch("http://localhost:4000/api/items/");
       const json = await response.json();
 
       if (response.ok) {

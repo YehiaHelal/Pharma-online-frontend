@@ -9,6 +9,83 @@ const AllItemsComponent = (props) => {
   const { items, dispatch } = useItemsCartContext(); // for adding items to the cart
   const [dropDown, setDropDown] = useState(false);
 
+  const [addItemToCart, setaddItemToCart] = useState(); // for adding items to the cart
+  const [changeValue, setChangeValue] = useState(0); // for adding items to the cart
+
+  // useEffect(() => {}, [duplicateItemDealWith]);
+
+  useEffect(() => {
+    if (addItemToCart !== undefined) {
+      const localStoragecurrentItems = JSON.parse(
+        localStorage.getItem("cartItems")
+      );
+
+      const checkforduplicatefilter = localStoragecurrentItems.filter(
+        (item) => {
+          console.log(item._id, addItemToCart._id);
+          return item._id === addItemToCart._id;
+        }
+      );
+
+      if (checkforduplicatefilter.length >= 1) {
+        setTimeout(() => {
+          // setDuplicateItemDealWith(checkforduplicatefilter);
+          console.log("we are dealing with duplicate");
+          //dealing with the duplicate
+          // const ItemIncresedNumberofItems = checkforduplicatefilter.map(
+          //   (item) => {
+          //     item.numberofitem += 1;
+          //     return item;
+          //   }
+          // );
+
+          const ItemIncresedNumberofItems = checkforduplicatefilter.map(
+            (item) => {
+              item.numberofitem += 1;
+              return item;
+            }
+          );
+          // ItemIncresedNumberofItems
+
+          // filtering the duplicated in the local storage and just keeping one
+
+          const filteringanyextra = localStoragecurrentItems.filter((item) => {
+            console.log(item._id, addItemToCart._id);
+            return item._id !== addItemToCart._id;
+          });
+          console.log(filteringanyextra);
+
+          dispatch({ type: "ADD", payload: ItemIncresedNumberofItems[0] });
+
+          const mergedArray = [
+            ...filteringanyextra,
+            ItemIncresedNumberofItems[0],
+          ];
+
+          localStorage.setItem("cartItems", JSON.stringify(mergedArray));
+        }, 500);
+      } else {
+        dispatch({ type: "ADD", payload: addItemToCart });
+
+        const mergedArray = [...localStoragecurrentItems, addItemToCart];
+
+        localStorage.setItem("cartItems", JSON.stringify(mergedArray));
+      }
+
+      // if (checkforduplicatefilter) {
+      //   setDuplicateItemDealWith(checkforduplicatefilter);
+      // }
+      // console.log(addItemToCart);
+      // console.log("we are inside");
+
+      // so we here getting the data from the local storage if they are there, and adding them with the current context so it says
+      // up to date.
+      // const ToLocalStorageitems = JSON.parse(
+      //   localStorage.getItem("cartItems")
+      // );
+    }
+  }, [addItemToCart, changeValue]);
+
   // const Itemsss = props.props;
   // passing it as props
 
@@ -104,12 +181,7 @@ const AllItemsComponent = (props) => {
               ItemsShowen0.map((item) => {
                 return (
                   <div className="box" key={item._id}>
-                    <a
-                      href={
-                        "https://pharma-online-frontend-production.up.railway.app/" +
-                        item._id
-                      }
-                    >
+                    <a href={"http://localhost:3000/" + item._id}>
                       <img
                         src={require(`./../../img/products/${item.image}`)}
                         alt="imageos"
@@ -121,18 +193,26 @@ const AllItemsComponent = (props) => {
                     <button
                       // data={item}
                       onClick={() => {
-                        const itemss = item;
-                        dispatch({ type: "ADD", payload: itemss });
-                        // so we here getting the data from the local storage if they are there, and adding them with the current context so it says
-                        // up to date.
-                        const addingToLocalStorage = JSON.parse(
+                        // const itemss = item;
+                        // const itemssId = item._id;
+
+                        const numberofitemforvalue = JSON.parse(
                           localStorage.getItem("cartItems")
                         );
-                        const mergedArray = [...addingToLocalStorage, itemss];
-                        localStorage.setItem(
-                          "cartItems",
-                          JSON.stringify(mergedArray)
-                        );
+
+                        setaddItemToCart(item);
+                        setChangeValue(numberofitemforvalue.length + 1);
+
+                        // const localStoragecurrentItems = JSON.parse(
+                        //   localStorage.getItem("cartItems")
+                        // );
+
+                        // console.log(checkforduplicatefilter);
+
+                        // setaddItemToCart()
+
+                        // if (checkforduplicatefilter === [null]) {
+                        // }
 
                         // dispatchoo({ type: "SET_TO_TRUE", payload: true });
                       }}

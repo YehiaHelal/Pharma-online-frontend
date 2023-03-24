@@ -11,6 +11,7 @@
   --six: slateblue;
   --seven: slategray;
   --eight: #00cd7c;
+  --error: #e7195a;
 }
 body {
   margin: 0;
@@ -804,4 +805,356 @@ form label span {
 }
 .sorting-icons button {
   background-color: rgb(0, 205, 124, 0.8);
+}
+
+/* error popup and checkers */
+
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+div.error-Search {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  width: 400px;
+}
+
+div.error-Search-main {
+  display: flex;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+/* Responsive */
+/* from 900px to 600px */
+
+@media screen and (max-width: 900px) {
+  header .nav1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+  }
+  header .nav2 {
+    display: flex;
+  }
+  .button-instead-of-scrolling {
+    width: 0;
+  }
+  .item-default-On-Main-Page {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .item-default-On-Main-Page-offer-3rd {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .grid-container-catogeries-img {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+  }
+  .sorting-main,
+  .sorting-icons,
+  .searched-each-item,
+  .item-default-and-leftSide-bar,
+  .grid-container-contact,
+  .component-default-login-signup,
+  .about,
+  .help-layout,
+  .NotFound {
+    width: 600px;
+  }
+
+  .item-default {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-container-comments-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .grid-container-footer {
+    grid-template-columns: repeat(2, 1fr);
+    width: 600px;
+  }
+  .cart-page-main {
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-container-contact {
+    margin-top: 20px;
+    gap: 10px;
+  }
+}
+
+/* from 600px to 450px */
+
+@media screen and (max-width: 650px) {
+  header nav,
+  .nav2 {
+    font-size: 12px;
+  }
+  header .nav1 > a {
+    font-size: 12px;
+  }
+  header .nav2 > a {
+  }
+  header .nav1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+  }
+  header .nav2 {
+    display: flex;
+    font-size: 12px;
+    padding: 0;
+  }
+  header .nav3 > a {
+    font-size: 12px;
+  }
+  .button-instead-of-scrolling {
+    width: 0;
+  }
+  .item-default-On-Main-Page,
+  .grid-container-offers2 {
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 12px;
+  }
+  .item-default-On-Main-Page-offer-3rd {
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 12px;
+  }
+  .grid-container-catogeries-img {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    font-size: 12px;
+  }
+  .grid-container-footer .sorting-main,
+  .sorting-icons,
+  .searched-each-item,
+  .grid-container-contact,
+  .component-default-login-signup,
+  .about,
+  .help-layout,
+  .NotFound {
+    width: 500px;
+    font-size: 12px;
+  }
+
+  .item-default-and-leftSide-bar {
+    width: 500px;
+  }
+  .item-default {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-container-comments-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .grid-container-footer {
+    display: flex;
+    width: 500px;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+  }
+  .cart-page-main {
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-container-contact {
+    margin-top: 20px;
+    gap: 10px;
+  }
+  .grid-container-contact,
+  .grid-container-comments-section {
+    font-size: 12px;
+  }
+  .left-side-bar-categories,
+  .left-side-bar-branches {
+    font-size: 10px;
+  }
+  .item-default {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
+    gap: 10px;
+    margin-left: 10px;
+  }
+}
+
+/* from 500px to downward */
+
+@media screen and (max-width: 500px) {
+  header nav,
+  .nav2 {
+    font-size: 10px;
+  }
+  header .nav1 > a {
+    font-size: 8px;
+    padding: 8px;
+  }
+  header .nav1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+  }
+  header .nav2 {
+    display: flex;
+    font-size: 8px;
+    padding: 5px;
+  }
+  header .nav3 > a {
+    font-size: 10px;
+  }
+  .button-instead-of-scrolling {
+    width: 0;
+  }
+  .item-default-On-Main-Page,
+  .grid-container-offers2 {
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 10px;
+    padding: 5px;
+    gap: 10px;
+  }
+  .item-default-On-Main-Page-offer-3rd {
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 10px;
+    padding: 5px;
+    gap: 10px;
+  }
+  .grid-container-catogeries-img {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    font-size: 10px;
+  }
+  .grid-container-footer .sorting-main,
+  .sorting-icons,
+  .searched-each-item,
+  .grid-container-contact,
+  .component-default-login-signup,
+  .about,
+  .help-layout,
+  .NotFound {
+    width: 350px;
+    font-size: 10px;
+  }
+
+  .item-default-and-leftSide-bar {
+    width: 350px;
+  }
+  .item-default {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-container-comments-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .grid-container-footer {
+    display: flex;
+    width: 350px;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+  }
+  .cart-page-main {
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-container-contact {
+    margin-top: 20px;
+    gap: 10px;
+  }
+  .grid-container-contact,
+  .grid-container-comments-section {
+    font-size: 10px;
+  }
+  .footer-row {
+    gap: 0;
+  }
+  .box {
+    padding: 0;
+    font-size: 12px;
+  }
+  .item-default-On-Main-Page {
+    padding: 0px;
+  }
+  .name,
+  .price {
+    font-size: 12px;
+  }
+  .item-default-and-leftSide-bar {
+    width: 400px;
+  }
+  .item-default-and-leftSide-bar {
+    gap: 0;
+    padding: 0;
+  }
+  .left-side-bar-categories,
+  .left-side-bar-branches {
+    font-size: 10px;
+  }
+  .item-default {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
+    gap: 10px;
+    margin-left: 10px;
+  }
+}
+@media screen and (max-width: 400px) {
+  header nav,
+  .nav2 {
+    font-size: 8px;
+  }
+  header .nav1 > a {
+    font-size: 8px;
+    padding: 3px;
+  }
+  header .nav1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+  }
+  header .nav2 {
+    display: flex;
+    font-size: 8px;
+    padding: 3px;
+    gap: 0;
+  }
+  header .nav3 > a {
+    font-size: 8px;
+    padding: 5px;
+  }
+  .button-instead-of-scrolling {
+    width: 0;
+  }
+  .box-item-searched-tab {
+    width: 150px;
+  }
+  .searched-each-item {
+    padding: 5px;
+    gap: 5px;
+  }
+  .grid-container-footer {
+    display: flex;
+    width: 300px;
+    padding: 0;
+    margin: 0;
+    font-size: 8px;
+  }
+  .item-default-and-leftSide-bar {
+    width: 350px;
+    grid-template-columns: 1fr 3fr;
+  }
+  .item-default {
+    padding: 5px;
+    gap: 5px;
+    margin-left: 5px;
+  }
 }

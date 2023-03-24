@@ -1,8 +1,20 @@
-import { Form, redirect, useActionData } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Form, redirect, useActionData, useNavigate } from "react-router-dom";
 import Footer from "../footer/Footer";
 
 export default function Contact() {
   const data = useActionData();
+  const navTo = useNavigate();
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    if (typeof data === "object") {
+      setShowPopup(true);
+      setTimeout(() => {
+        navTo("/");
+      }, 2000);
+    }
+  }, [data]);
 
   return (
     <>
@@ -20,6 +32,9 @@ export default function Contact() {
                 <textarea name="message" required></textarea>
               </label>
               <button>Submit</button>
+              {showPopup && (
+                <p>Sumbit was Successful, redirecting in 1sec ..</p>
+              )}
             </Form>
           </div>
           <div>
@@ -54,5 +69,5 @@ export const contactAction = async ({ request }) => {
   }
 
   // redirect the user
-  return redirect("/");
+  return submission;
 };

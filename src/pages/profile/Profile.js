@@ -11,14 +11,26 @@ export default function Profile() {
     useState(false);
 
   const data = useActionData();
+
   console.log(data);
 
-  console.log(userData.data.user);
-  console.log(userData.data.user.email);
+  console.log(orderbackData);
+  // console.log(data);
+
+  // console.log(userData.data.user);
+  // console.log(userData.data.user.email);
+
+  // const allOrderProducts = orderbackData.data.orders.map((item) => {
+  //   return item.orderProducts;
+  // });
+
+  // console.log(orderbackData.data.orders);
+
+  // console.log(orderbackData.data.orders.orderProducts);
 
   async function handlegetpastorders() {
     const res = await axios.post(
-      "https://pharma-online-api-production.up.railway.app/api/orders/getuserorders",
+      "http://localhost:4000/api/orders/getuserorders",
       { message: "hello" },
       {
         withCredentials: true,
@@ -34,6 +46,7 @@ export default function Profile() {
     if (res.status === 200) {
       console.log("order back successfully");
       SetOrderBackData(res);
+
       SetShowEdityourInformationTap(false);
       SetShowOrderback(true);
     }
@@ -74,7 +87,11 @@ export default function Profile() {
                 return (
                   <div key={item._id}>
                     <p>Order number: {index + 1} </p>
-                    <p>Orders Products: {item.orderProducts.toString()}</p>
+                    <p>Orders Products: {item.orderProducts.toString()} </p>
+                    <p>
+                      Quantity Of Items for each:{" "}
+                      {item.numberofitems.toString()}
+                    </p>
                     <p>Orders Total Price: ${item.orderTotalValue}</p>
                     ------
                   </div>
@@ -107,9 +124,12 @@ export default function Profile() {
   );
 }
 
-export const ProfileLoader = async ({}) => {
+export const ProfileLoader = async ({ request }) => {
+  // const data = await request.formData();
+  // console.log(request);
+  // try {
   const res = await axios.post(
-    "https://pharma-online-api-production.up.railway.app/api/users/profile",
+    "http://localhost:4000/api/users/profile",
     { message: "hello" },
     {
       withCredentials: true,
@@ -122,10 +142,10 @@ export const ProfileLoader = async ({}) => {
       },
     }
   );
-
-  console.log(res);
-
   return res;
+  // } catch (error) {
+  //   return "error";
+  // }
 };
 
 export const ProfileAction = async ({ request }) => {
@@ -137,7 +157,7 @@ export const ProfileAction = async ({ request }) => {
   };
 
   const datas = await axios.post(
-    "https://pharma-online-api-production.up.railway.app/api/users/updateinfo",
+    "http://localhost:4000/api/users/updateinfo",
     {
       submission,
     },
