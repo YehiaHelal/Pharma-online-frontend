@@ -181,7 +181,12 @@ const AllItemsComponent = (props) => {
               ItemsShowen0.map((item) => {
                 return (
                   <div className="box" key={item._id}>
-                    <a href={"http://localhost:3000/" + item._id}>
+                    <a
+                      href={
+                        "https://pharma-online-frontend-production.up.railway.app/" +
+                        item._id
+                      }
+                    >
                       <img
                         src={require(`./../../img/products/${item.image}`)}
                         alt="imageos"

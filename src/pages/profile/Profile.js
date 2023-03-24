@@ -30,7 +30,7 @@ export default function Profile() {
 
   async function handlegetpastorders() {
     const res = await axios.post(
-      "http://localhost:4000/api/orders/getuserorders",
+      "https://pharma-online-api-production.up.railway.app/api/orders/getuserorders",
       { message: "hello" },
       {
         withCredentials: true,
@@ -129,7 +129,7 @@ export const ProfileLoader = async ({ request }) => {
   // console.log(request);
   // try {
   const res = await axios.post(
-    "http://localhost:4000/api/users/profile",
+    "https://pharma-online-api-production.up.railway.app/api/users/profile",
     { message: "hello" },
     {
       withCredentials: true,
@@ -157,7 +157,7 @@ export const ProfileAction = async ({ request }) => {
   };
 
   const datas = await axios.post(
-    "http://localhost:4000/api/users/updateinfo",
+    "https://pharma-online-api-production.up.railway.app/api/users/updateinfo",
     {
       submission,
     },

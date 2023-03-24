@@ -134,7 +134,7 @@ export const SignupAction = async ({ request }) => {
   // const dataaa = async () => {
   try {
     const datas = await axios.post(
-      `http://localhost:4000/api/users/signup/`,
+      `https://pharma-online-api-production.up.railway.app/api/users/signup/`,
       { submission },
       {
         withCredentials: true,
@@ -152,10 +152,7 @@ export const SignupAction = async ({ request }) => {
     console.log(error.response.data[0]);
     return error.response.data.error;
   }
- 
 
-  
   return 1;
 };
 // },
-
