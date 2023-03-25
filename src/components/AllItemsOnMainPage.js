@@ -50,7 +50,7 @@ const AllItemsOnMainPage = (props) => {
             //    console.log(item._id, addItemToCart._id);
             return item._id !== addItemToCart._id;
           });
-         //  console.log(filteringanyextra);
+          //  console.log(filteringanyextra);
 
           dispatch({ type: "ADD", payload: ItemIncresedNumberofItems[0] });
 
@@ -119,7 +119,12 @@ const AllItemsOnMainPage = (props) => {
           ItemsShowen0.map((item) => {
             return (
               <div className="box" key={item._id}>
-                <a href={"http://localhost:3000/" + item._id}>
+                <a
+                  href={
+                    "https://pharma-online-frontend-production.up.railway.app/" +
+                    item._id
+                  }
+                >
                   <img
                     src={require(`./../img/products/${item.image}`)}
                     alt="imageos"
