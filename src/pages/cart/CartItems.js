@@ -9,8 +9,6 @@ const CartItems = () => {
   const { user, dispatchUser } = useAuthContext();
   const { items, dispatch } = useItemsCartContext();
   const navTo = useNavigate();
-  const [myCategory, setMyCategory] = useState("");
-  const [myCategorya, setMyCategorya] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [placeOrderButton, setPlaceOrderButton] = useState(false);
   const [hideOrderButton, setHideOrderButton] = useState(false);
@@ -29,7 +27,7 @@ const CartItems = () => {
 
       const checkforduplicatefilter = localStoragecurrentItems.filter(
         (item) => {
-          console.log(item._id, addItemToCart._id);
+          //     console.log(item._id, addItemToCart._id);
           return item._id === addItemToCart._id;
         }
       );
@@ -37,7 +35,7 @@ const CartItems = () => {
       if (checkforduplicatefilter.length >= 1) {
         setTimeout(() => {
           // setDuplicateItemDealWith(checkforduplicatefilter);
-          console.log("we are dealing with duplicate");
+          //    console.log("we are dealing with duplicate");
           //dealing with the duplicate
           // const ItemIncresedNumberofItems = checkforduplicatefilter.map(
           //   (item) => {
@@ -57,10 +55,10 @@ const CartItems = () => {
           // filtering the duplicated in the local storage and just keeping one
 
           const filteringanyextra = localStoragecurrentItems.filter((item) => {
-            console.log(item._id, addItemToCart._id);
+            //    console.log(item._id, addItemToCart._id);
             return item._id !== addItemToCart._id;
           });
-          console.log(filteringanyextra);
+          //    console.log(filteringanyextra);
 
           dispatch({ type: "ADD", payload: ItemIncresedNumberofItems[0] });
 
@@ -125,9 +123,9 @@ const CartItems = () => {
     item.numberofitem,
   ]);
 
-  console.log(numberOfItems);
+  // console.log(numberOfItems);
 
-  console.log(orderProductsNameArray);
+  // console.log(orderProductsNameArray);
 
   // to get all the products values and sums them
   const orderTotalvalueArray = CartitemsSavedFromLocalStorage.map(
@@ -150,7 +148,7 @@ const CartItems = () => {
     // fetch request and if ok the cookie will be removed
 
     const response = await axios.post(
-      "https://pharma-online-api-production.up.railway.app/api/orders/cartorder",
+      "http://localhost:4000/api/orders/cartorder",
       { OrderDetails },
       {
         withCredentials: true,
@@ -163,13 +161,13 @@ const CartItems = () => {
         },
       }
     );
-    console.log(response);
+    // console.log(response);
 
     if ((response.data.status = 200)) {
       handleShowPopup();
       setHideOrderButton(true);
 
-      console.log("order placed and redirecting");
+      // console.log("order placed and redirecting");
 
       setTimeout(() => {
         localStorage.removeItem("cartItems");
@@ -219,14 +217,14 @@ const CartItems = () => {
                             ...newFilteredTargetItem,
                           ];
 
-                          console.log(itemQuantityOneChecking.numberofitem);
+                          //    console.log(itemQuantityOneChecking.numberofitem);
 
                           if (itemQuantityOneChecking.numberofitem >= 1) {
                             const mergedArray2 = [
                               ...addingFiltersteptwo,
                               ...newFilteredTargetItem,
                             ];
-                            console.log(mergedArray2);
+                            //         console.log(mergedArray2);
 
                             localStorage.setItem(
                               "cartItems",
@@ -240,13 +238,13 @@ const CartItems = () => {
                           }
 
                           if (itemQuantityOneChecking.numberofitem < 1) {
-                            console.log("we can't subtract more");
+                            //     console.log("we can't subtract more");
 
                             filterstepone = JSON.parse(
                               localStorage.getItem("cartItems")
                             );
 
-                            console.log(filterstepone);
+                            //     console.log(filterstepone);
                             filtersteptwo = filterstepone.filter(
                               (newCart) => newCart._id !== item._id
                             );
@@ -311,7 +309,7 @@ const CartItems = () => {
                             ...addingFiltersteptwo,
                             ...newFilteredTargetItem,
                           ];
-                          console.log(mergedArray2);
+                       //    console.log(mergedArray2);
 
                           localStorage.setItem(
                             "cartItems",

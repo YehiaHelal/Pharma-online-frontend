@@ -16,9 +16,7 @@ export default function HelpLayout() {
 
             <nav>
               <NavLink to="faq">View the FAQ</NavLink>
-              <NavLink to="https://pharma-online-frontend-production.up.railway.app/contact">
-                Contact Us
-              </NavLink>
+              <NavLink to="http://localhost:3000/contact">Contact Us</NavLink>
             </nav>
 
             <Outlet />

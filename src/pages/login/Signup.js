@@ -24,7 +24,7 @@ export default function Signup() {
   //   console.log("wrong");
   //   setErrorShowPopup(true);
   // }
-  console.log(data);
+  //  console.log(data);
 
   // using useRef and useEffect and not to cause a render ..
 
@@ -42,7 +42,7 @@ export default function Signup() {
       setErrorShowPopupfrontend(false);
       setShowBackendErrorPopup(true);
       setShowBackendErrorMessage("there is an existing user");
-      console.log(showBackendErrorMessage);
+      //  console.log(showBackendErrorMessage);
     }
     if (typeof data === "object") {
       setErrorShowPopupfrontend(false);
@@ -126,7 +126,7 @@ export const SignupAction = async ({ request }) => {
 
   if (submission.password.length < 6) {
     // "password must be longer than 6 characters"
-    console.log("password must be longer than 6 characters long");
+    //  console.log("password must be longer than 6 characters long");
     const errorSet = "password error";
     return errorSet;
   }
@@ -134,7 +134,7 @@ export const SignupAction = async ({ request }) => {
   // const dataaa = async () => {
   try {
     const datas = await axios.post(
-      `https://pharma-online-api-production.up.railway.app/api/users/signup/`,
+      `http://localhost:4000/api/users/signup/`,
       { submission },
       {
         withCredentials: true,
@@ -149,7 +149,7 @@ export const SignupAction = async ({ request }) => {
     );
     return datas;
   } catch (error) {
-    console.log(error.response.data[0]);
+    // console.log(error.response.data[0]);
     return error.response.data.error;
   }
 

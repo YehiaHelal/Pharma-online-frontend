@@ -12,25 +12,13 @@ export default function Profile() {
 
   const data = useActionData();
 
-  console.log(data);
+  //  console.log(data);
 
-  console.log(orderbackData);
-  // console.log(data);
-
-  // console.log(userData.data.user);
   // console.log(userData.data.user.email);
-
-  // const allOrderProducts = orderbackData.data.orders.map((item) => {
-  //   return item.orderProducts;
-  // });
-
-  // console.log(orderbackData.data.orders);
-
-  // console.log(orderbackData.data.orders.orderProducts);
 
   async function handlegetpastorders() {
     const res = await axios.post(
-      "https://pharma-online-api-production.up.railway.app/api/orders/getuserorders",
+      "http://localhost:4000/api/orders/getuserorders",
       { message: "hello" },
       {
         withCredentials: true,
@@ -129,7 +117,7 @@ export const ProfileLoader = async ({ request }) => {
   // console.log(request);
   // try {
   const res = await axios.post(
-    "https://pharma-online-api-production.up.railway.app/api/users/profile",
+    "http://localhost:4000/api/users/profile",
     { message: "hello" },
     {
       withCredentials: true,
@@ -157,7 +145,7 @@ export const ProfileAction = async ({ request }) => {
   };
 
   const datas = await axios.post(
-    "https://pharma-online-api-production.up.railway.app/api/users/updateinfo",
+    "http://localhost:4000/api/users/updateinfo",
     {
       submission,
     },

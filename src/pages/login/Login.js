@@ -20,9 +20,9 @@ export default function Login() {
   const [showBackendErrorPopup, setShowBackendErrorPopup] = useState(false);
   const [showBackendErrorMessage, setShowBackendErrorMessage] = useState();
 
-  console.log(user);
+  // console.log(user);
 
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     if (data === "password error") {
@@ -38,21 +38,21 @@ export default function Login() {
       setErrorShowPopupfrontend(false);
       setShowBackendErrorPopup(true);
       setShowBackendErrorMessage("incorrect password");
-      console.log(showBackendErrorMessage);
+      //  console.log(showBackendErrorMessage);
     }
 
     if (data === "No such user found") {
       setErrorShowPopupfrontend(false);
       setShowBackendErrorPopup(true);
       setShowBackendErrorMessage("No user was found matching that email");
-      console.log(showBackendErrorMessage);
+      //    console.log(showBackendErrorMessage);
     }
 
     if (typeof data === "object") {
       setShowBackendErrorPopup(false);
       setErrorShowPopupfrontend(false);
 
-      console.log("we are in");
+      //   console.log("we are in");
       dispatchUser({ type: "LOGIN", payload: data });
 
       localStorage.setItem("user", JSON.stringify(data));
@@ -116,14 +116,14 @@ export const LoginAction = async ({ request }) => {
 
   if (submission.password.length < 6) {
     // "password must be longer than 6 characters"
-    console.log("password must be longer than 6 characters long");
+    //  console.log("password must be longer than 6 characters long");
     const errorSet = "password error";
     return errorSet;
   }
 
   try {
     const datas = await axios.post(
-      "https://pharma-online-api-production.up.railway.app/api/users/login",
+      "http://localhost:4000/api/users/login",
       {
         submission,
       },
@@ -150,7 +150,7 @@ export const LoginAction = async ({ request }) => {
     // send your post request
     return datas;
   } catch (error) {
-    console.log(error.response.data[0]);
+    //   console.log(error.response.data[0]);
     return error.response.data.error;
   }
 
@@ -159,7 +159,7 @@ export const LoginAction = async ({ request }) => {
 // );
 
 // const sendingRequest = async () => {
-//   const response = await fetch("https://pharma-online-api-production.up.railway.app/api/users/");
+//   const response = await fetch("http://localhost:4000/api/users/");
 
 //   const json = await response.json();
 

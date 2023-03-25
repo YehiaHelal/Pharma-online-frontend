@@ -15,7 +15,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 const Home = () => {
   const { allItems, dispatcho } = useFetchItemsContext();
   const { items, dispatch } = useItemsCartContext();
-  const { state, dispatchUser } = useAuthContext();
+  const { user, dispatchUser } = useAuthContext();
   const [slidingImagesOffer, setSlidingImagesOffer] = useState(1);
   const [slidingThirtyOfferItems, setSlidingThirtyOfferItems] = useState(1);
 
@@ -25,18 +25,16 @@ const Home = () => {
 
   if (slidingThirtyOfferItems === 1) {
     allItemsOnThirtyPercentOffer = allItems.slice(20, 25);
-    console.log(allItemsOnThirtyPercentOffer);
+    //  console.log(allItemsOnThirtyPercentOffer);
   }
   if (slidingThirtyOfferItems === 2) {
     allItemsOnThirtyPercentOffer = allItems.slice(25, 30);
-    console.log(allItemsOnThirtyPercentOffer);
+    //  console.log(allItemsOnThirtyPercentOffer);
   }
 
   useEffect(() => {
-    const fetchWorkouts = async () => {
-      const response = await fetch(
-        "https://pharma-online-api-production.up.railway.app/api/items/"
-      );
+    const fetchItems = async () => {
+      const response = await fetch("http://localhost:4000/api/items/");
 
       const json = await response.json();
 
@@ -45,8 +43,50 @@ const Home = () => {
       }
     };
 
-    fetchWorkouts();
+    fetchItems();
   }, [dispatcho]);
+
+  useEffect(() => {
+    if (user) {
+      const checkToken = async () => {
+        try {
+          const datas = await axios.post(
+            "http://localhost:4000/api/users/checktoken",
+            {
+              message: "checkme",
+            },
+            {
+              withCredentials: true,
+              headers: {
+                "Access-Control-Allow-Credentials": "true",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods":
+                  "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+                "Access-Control-Allow-Headers":
+                  "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+              },
+              // headers: {
+              //   "Access-Control-Allow-Origin": "*",
+              //   "Content-Type": "application/json",
+              // },
+            }
+          );
+          console.log(datas);
+          return;
+        } catch (error) {
+          console.log(error);
+          // then remove user from local storage and   which will set the context to null automatically
+          localStorage.removeItem("user");
+
+          // dispatch to context just to re-renders
+          dispatchUser({ type: "LOGOUT" });
+
+          return;
+        }
+      };
+      checkToken();
+    }
+  }, [user]);
 
   function handleSlidingImagesOffer1() {
     setSlidingImagesOffer(1);
@@ -71,7 +111,7 @@ const Home = () => {
       <div className="body">
         <div className="offers">
           <div>
-            <a href="https://pharma-online-frontend-production.up.railway.app/offers">
+            <a href="http://localhost:3000/offers">
               <div className="first-offer">
                 <img
                   src={require(`./../img/offers/our-app.webp`)}
@@ -87,7 +127,7 @@ const Home = () => {
           </div>
 
           <div>
-            <a href="https://pharma-online-frontend-production.up.railway.app/offers">
+            <a href="http://localhost:3000/offers">
               <div className="second-offer">
                 {slidingImagesOffer === 1 && (
                   <img
@@ -132,7 +172,7 @@ const Home = () => {
         </div>
 
         <div className="grid-container-catogeries-img">
-          <a href="https://pharma-online-frontend-production.up.railway.app/medications">
+          <a href="http://localhost:3000/medications">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-1.webp`)}
@@ -141,7 +181,7 @@ const Home = () => {
               <p>Medications</p>
             </div>
           </a>
-          <Link to="https://pharma-online-frontend-production.up.railway.app/skinCare">
+          <Link to="http://localhost:3000/skinCare">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-2.webp`)}
@@ -150,11 +190,7 @@ const Home = () => {
               <p>Skin Care</p>
             </div>
           </Link>
-          <Link
-            to={
-              "https://pharma-online-frontend-production.up.railway.app/dailyEssentials"
-            }
-          >
+          <Link to={"http://localhost:3000/dailyEssentials"}>
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-4.webp`)}
@@ -163,11 +199,7 @@ const Home = () => {
               <p>Daily Essentials</p>
             </div>
           </Link>
-          <Link
-            to={
-              "https://pharma-online-frontend-production.up.railway.app/vitaminsAndSupplements"
-            }
-          >
+          <Link to={"http://localhost:3000/vitaminsAndSupplements"}>
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-3.webp`)}
@@ -184,7 +216,7 @@ const Home = () => {
 
         <div>
           <a
-            href="https://pharma-online-frontend-production.up.railway.app/offers"
+            href="http://localhost:3000/offers"
             className="grid-container-offers2"
           >
             <img
@@ -218,12 +250,7 @@ const Home = () => {
               allItemsOnThirtyPercentOffer.map((item) => {
                 return (
                   <div className="box" key={item._id}>
-                    <a
-                      href={
-                        "https://pharma-online-frontend-production.up.railway.app/" +
-                        item._id
-                      }
-                    >
+                    <a href={"http://localhost:3000/" + item._id}>
                       <img
                         src={require(`./../img/products/${item.image}`)}
                         alt="imageos"
@@ -313,7 +340,7 @@ const Home = () => {
 export default Home;
 
 // export const allItemLoader = async () => {
-//   const res = await fetch("https://pharma-online-api-production.up.railway.app/api/items/");
+//   const res = await fetch("http://localhost:4000/api/items/");
 
 //   return res.json();
 // };

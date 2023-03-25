@@ -22,7 +22,7 @@ const AllItemsComponent = (props) => {
 
       const checkforduplicatefilter = localStoragecurrentItems.filter(
         (item) => {
-          console.log(item._id, addItemToCart._id);
+          //    console.log(item._id, addItemToCart._id);
           return item._id === addItemToCart._id;
         }
       );
@@ -30,7 +30,7 @@ const AllItemsComponent = (props) => {
       if (checkforduplicatefilter.length >= 1) {
         setTimeout(() => {
           // setDuplicateItemDealWith(checkforduplicatefilter);
-          console.log("we are dealing with duplicate");
+          //  console.log("we are dealing with duplicate");
           //dealing with the duplicate
           // const ItemIncresedNumberofItems = checkforduplicatefilter.map(
           //   (item) => {
@@ -50,10 +50,10 @@ const AllItemsComponent = (props) => {
           // filtering the duplicated in the local storage and just keeping one
 
           const filteringanyextra = localStoragecurrentItems.filter((item) => {
-            console.log(item._id, addItemToCart._id);
+            //    console.log(item._id, addItemToCart._id);
             return item._id !== addItemToCart._id;
           });
-          console.log(filteringanyextra);
+          //    console.log(filteringanyextra);
 
           dispatch({ type: "ADD", payload: ItemIncresedNumberofItems[0] });
 
@@ -181,12 +181,7 @@ const AllItemsComponent = (props) => {
               ItemsShowen0.map((item) => {
                 return (
                   <div className="box" key={item._id}>
-                    <a
-                      href={
-                        "https://pharma-online-frontend-production.up.railway.app/" +
-                        item._id
-                      }
-                    >
+                    <a href={"http://localhost:3000/" + item._id}>
                       <img
                         src={require(`./../../img/products/${item.image}`)}
                         alt="imageos"

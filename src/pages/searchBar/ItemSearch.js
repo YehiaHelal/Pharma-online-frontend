@@ -19,7 +19,7 @@ export default function ItemSearch() {
 
       const checkforduplicatefilter = localStoragecurrentItems.filter(
         (item) => {
-          console.log(item._id, addItemToCart._id);
+          //     console.log(item._id, addItemToCart._id);
           return item._id === addItemToCart._id;
         }
       );
@@ -27,7 +27,7 @@ export default function ItemSearch() {
       if (checkforduplicatefilter.length >= 1) {
         setTimeout(() => {
           // setDuplicateItemDealWith(checkforduplicatefilter);
-          console.log("we are dealing with duplicate");
+          //     console.log("we are dealing with duplicate");
           //dealing with the duplicate
           // const ItemIncresedNumberofItems = checkforduplicatefilter.map(
           //   (item) => {
@@ -47,10 +47,10 @@ export default function ItemSearch() {
           // filtering the duplicated in the local storage and just keeping one
 
           const filteringanyextra = localStoragecurrentItems.filter((item) => {
-            console.log(item._id, addItemToCart._id);
+            //    console.log(item._id, addItemToCart._id);
             return item._id !== addItemToCart._id;
           });
-          console.log(filteringanyextra);
+          //   console.log(filteringanyextra);
 
           dispatch({ type: "ADD", payload: ItemIncresedNumberofItems[0] });
 
@@ -158,9 +158,7 @@ export default function ItemSearch() {
 export const itemSearchLoader = async ({ params }) => {
   const { id } = params;
 
-  const res = await fetch(
-    "https://pharma-online-api-production.up.railway.app/api/items/" + id
-  );
+  const res = await fetch("http://localhost:4000/api/items/" + id);
 
   if (!res.ok) {
     throw Error("Could not find that item");

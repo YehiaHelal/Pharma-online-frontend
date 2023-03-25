@@ -16,7 +16,7 @@ import NotFound from "./pages/errorhandling/NotFound";
 import RootLayout from "./layouts/RootLayout";
 import HelpLayout from "./layouts/HelpLayout";
 
-import { MedicationsPageLoader } from "./pages/categories/Medications";
+// import { MedicationsPageLoader } from "./pages/categories/Medications";
 import VitaminsAndSupplements from "./pages/categories/vitaminsAndSupplements";
 import SkinCare from "./pages/categories/skinCare";
 import DailyEssentials from "./pages/categories/dailyEssentials";
@@ -29,7 +29,7 @@ import Contact, { contactAction } from "./pages/help/Contact";
 
 import Medications from "./pages/categories/Medications";
 import Offers from "./pages/offers/offers";
-import FavouriteItems from "./pages/favourite/favourite";
+// import FavouriteItems from "./pages/favourite/favourite";
 import Profile, { ProfileAction, ProfileLoader } from "./pages/profile/Profile";
 
 const router = createBrowserRouter(
@@ -61,7 +61,7 @@ const router = createBrowserRouter(
         loader={itemSearchLoader}
         errorElement={<NotFound />}
       />
-      <Route path="favourite" element={<FavouriteItems />} />
+      {/* <Route path="favourite" element={<FavouriteItems />} /> */}
       <Route path="cart" element={<CartItems />} />
 
       <Route path="about" element={<About />} />

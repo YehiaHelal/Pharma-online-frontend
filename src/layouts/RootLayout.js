@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Outlet, NavLink, redirect, Link, useNavigate } from "react-router-dom";
-import Breadcrumbs from "../components/Breadcrumbs";
+import { Outlet, NavLink, Link, useNavigate } from "react-router-dom";
+
 import { useAuthContext } from "../hooks/useAuthContext";
 import axios from "axios";
 
@@ -18,7 +18,7 @@ export default function RootLayout() {
   const LogoutFunctionHandler = async () => {
     // fetch request and if ok the cookie will be removed
     const datas = await axios.post(
-      "https://pharma-online-api-production.up.railway.app/api/users/logout",
+      "http://localhost:4000/api/users/logout",
       {},
       {
         withCredentials: true,
@@ -120,15 +120,11 @@ export default function RootLayout() {
             type="text"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
+            placeholder="Search For Item"
           ></input>
           <NavLink
             className="search-button"
-            to={
-              searchedNameobject
-                ? "https://pharma-online-frontend-production.up.railway.app/" +
-                  id
-                : ""
-            }
+            to={searchedNameobject ? "http://localhost:3000/" + id : ""}
             onClick={() => {
               if (searchedNameobject === undefined) {
                 setShowSearchError(true);
