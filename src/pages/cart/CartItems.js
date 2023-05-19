@@ -148,7 +148,7 @@ const CartItems = () => {
     // fetch request and if ok the cookie will be removed
 
     const response = await axios.post(
-      "https://pharma-online-api-production.up.railway.app/api/orders/cartorder",
+      "https://venerable-dragon-eb7237.netlify.app/api/orders/cartorder",
       { OrderDetails },
       {
         withCredentials: true,

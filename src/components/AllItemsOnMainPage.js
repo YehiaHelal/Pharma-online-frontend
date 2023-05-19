@@ -120,10 +120,7 @@ const AllItemsOnMainPage = (props) => {
             return (
               <div className="box" key={item._id}>
                 <a
-                  href={
-                    "https://pharma-online-frontend-production.up.railway.app/" +
-                    item._id
-                  }
+                  href={"https://sunny-mandazi-9696e0.netlify.app/" + item._id}
                 >
                   <img
                     src={require(`./../img/products/${item.image}`)}

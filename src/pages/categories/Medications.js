@@ -10,7 +10,7 @@ const Medications = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       const response = await fetch(
-        "https://pharma-online-api-production.up.railway.app/api/items/"
+        "https://venerable-dragon-eb7237.netlify.app/api/items/"
       );
       const json = await response.json();
 

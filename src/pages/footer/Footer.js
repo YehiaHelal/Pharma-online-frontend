@@ -10,32 +10,30 @@ export default function Footer() {
         </div>
         <div className="footer-row">
           <div>
-            <a href="https://pharma-online-frontend-production.up.railway.app/about">
+            <a href="https://sunny-mandazi-9696e0.netlify.app/about">
               About Us
             </a>
           </div>
 
           <div>
-            <a href="https://pharma-online-frontend-production.up.railway.app/contact">
+            <a href="https://sunny-mandazi-9696e0.netlify.app/contact">
               Contact
             </a>
           </div>
           <div>
-            <a href="https://pharma-online-frontend-production.up.railway.app/help">
-              FAQ Page
-            </a>
+            <a href="https://sunny-mandazi-9696e0.netlify.app/help">FAQ Page</a>
           </div>
           <div>Are you a pharmacy owner?</div>
         </div>
         <div className="footer-row">
           <div>
-            <a href="https://pharma-online-frontend-production.up.railway.app/contact">
+            <a href="https://sunny-mandazi-9696e0.netlify.app/contact">
               Our Services
             </a>
           </div>
 
           <div>
-            <a href="https://pharma-online-frontend-production.up.railway.app/contact">
+            <a href="https://sunny-mandazi-9696e0.netlify.app/contact">
               Our branches
             </a>
           </div>

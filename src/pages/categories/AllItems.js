@@ -183,8 +183,7 @@ const AllItemsComponent = (props) => {
                   <div className="box" key={item._id}>
                     <a
                       href={
-                        "https://pharma-online-frontend-production.up.railway.app/" +
-                        item._id
+                        "https://sunny-mandazi-9696e0.netlify.app/" + item._id
                       }
                     >
                       <img
@@ -206,7 +205,7 @@ const AllItemsComponent = (props) => {
                         );
 
                         setaddItemToCart(item);
-                        setChangeValue(numberofitemforvalue.length + 1);
+                        setChangeValue(changeValue + 1);
 
                         // const localStoragecurrentItems = JSON.parse(
                         //   localStorage.getItem("cartItems")

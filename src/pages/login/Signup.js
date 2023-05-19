@@ -134,7 +134,7 @@ export const SignupAction = async ({ request }) => {
   // const dataaa = async () => {
   try {
     const datas = await axios.post(
-      `https://pharma-online-api-production.up.railway.app/api/users/signup/`,
+      `https://venerable-dragon-eb7237.netlify.app/api/users/signup/`,
       { submission },
       {
         withCredentials: true,

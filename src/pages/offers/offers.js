@@ -4,7 +4,7 @@ const Offers = () => {
       <div className="offers-selected-page-main-text">
         please call us to give you more details about our offers, our numbers
         are on the contact page
-        <a href="https://pharma-online-frontend-production.up.railway.app/contact">
+        <a href="https://sunny-mandazi-9696e0.netlify.app/contact">
           <div>Contact Page</div>
         </a>
       </div>

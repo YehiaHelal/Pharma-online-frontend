@@ -32,10 +32,17 @@ const Home = () => {
     //  console.log(allItemsOnThirtyPercentOffer);
   }
 
+  let a = [1, 2, 3],
+    b = [101, 2, 1, 10];
+  let c = a.concat(b);
+  let d = c.filter((item, pos) => c.indexOf(item) === pos);
+
+  console.log(d); // d is [1, 2, 3, 101, 10]
+
   useEffect(() => {
     const fetchItems = async () => {
       const response = await fetch(
-        "https://pharma-online-api-production.up.railway.app/api/items/"
+        "https://venerable-dragon-eb7237.netlify.app/api/items/"
       );
 
       const json = await response.json();
@@ -53,7 +60,7 @@ const Home = () => {
       const checkToken = async () => {
         try {
           const datas = await axios.post(
-            "https://pharma-online-api-production.up.railway.app/api/users/checktoken",
+            "https://venerable-dragon-eb7237.netlify.app/api/users/checktoken",
             {
               message: "checkme",
             },
@@ -113,7 +120,7 @@ const Home = () => {
       <div className="body">
         <div className="offers">
           <div>
-            <a href="https://pharma-online-frontend-production.up.railway.app/offers">
+            <a href="https://sunny-mandazi-9696e0.netlify.app/offers">
               <div className="first-offer">
                 <img
                   src={require(`./../img/offers/our-app.webp`)}
@@ -129,7 +136,7 @@ const Home = () => {
           </div>
 
           <div>
-            <a href="https://pharma-online-frontend-production.up.railway.app/offers">
+            <a href="https://sunny-mandazi-9696e0.netlify.app/offers">
               <div className="second-offer">
                 {slidingImagesOffer === 1 && (
                   <img
@@ -174,7 +181,7 @@ const Home = () => {
         </div>
 
         <div className="grid-container-catogeries-img">
-          <a href="https://pharma-online-frontend-production.up.railway.app/medications">
+          <a href="https://sunny-mandazi-9696e0.netlify.app/medications">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-1.webp`)}
@@ -183,7 +190,7 @@ const Home = () => {
               <p>Medications</p>
             </div>
           </a>
-          <Link to="https://pharma-online-frontend-production.up.railway.app/skinCare">
+          <Link to="https://sunny-mandazi-9696e0.netlify.app/skinCare">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-2.webp`)}
@@ -192,11 +199,7 @@ const Home = () => {
               <p>Skin Care</p>
             </div>
           </Link>
-          <Link
-            to={
-              "https://pharma-online-frontend-production.up.railway.app/dailyEssentials"
-            }
-          >
+          <Link to={"https://sunny-mandazi-9696e0.netlify.app/dailyEssentials"}>
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-4.webp`)}
@@ -207,7 +210,7 @@ const Home = () => {
           </Link>
           <Link
             to={
-              "https://pharma-online-frontend-production.up.railway.app/vitaminsAndSupplements"
+              "https://sunny-mandazi-9696e0.netlify.app/vitaminsAndSupplements"
             }
           >
             <div className="img">
@@ -226,7 +229,7 @@ const Home = () => {
 
         <div>
           <a
-            href="https://pharma-online-frontend-production.up.railway.app/offers"
+            href="https://sunny-mandazi-9696e0.netlify.app/offers"
             className="grid-container-offers2"
           >
             <img
@@ -262,8 +265,7 @@ const Home = () => {
                   <div className="box" key={item._id}>
                     <a
                       href={
-                        "https://pharma-online-frontend-production.up.railway.app/" +
-                        item._id
+                        "https://sunny-mandazi-9696e0.netlify.app/" + item._id
                       }
                     >
                       <img
@@ -355,7 +357,7 @@ const Home = () => {
 export default Home;
 
 // export const allItemLoader = async () => {
-//   const res = await fetch("https://pharma-online-api-production.up.railway.app/api/items/");
+//   const res = await fetch("https://venerable-dragon-eb7237.netlify.app/api/items/");
 
 //   return res.json();
 // };

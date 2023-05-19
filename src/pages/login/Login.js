@@ -123,7 +123,7 @@ export const LoginAction = async ({ request }) => {
 
   try {
     const datas = await axios.post(
-      "https://pharma-online-api-production.up.railway.app/api/users/login",
+      "https://venerable-dragon-eb7237.netlify.app/api/users/login",
       {
         submission,
       },
@@ -148,6 +148,8 @@ export const LoginAction = async ({ request }) => {
     // }
 
     // send your post request
+
+    // console.log(datas);
     return datas;
   } catch (error) {
     //   console.log(error.response.data[0]);
@@ -159,7 +161,7 @@ export const LoginAction = async ({ request }) => {
 // );
 
 // const sendingRequest = async () => {
-//   const response = await fetch("https://pharma-online-api-production.up.railway.app/api/users/");
+//   const response = await fetch("https://venerable-dragon-eb7237.netlify.app/api/users/");
 
 //   const json = await response.json();
 

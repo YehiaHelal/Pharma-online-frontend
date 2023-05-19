@@ -159,7 +159,7 @@ export const itemSearchLoader = async ({ params }) => {
   const { id } = params;
 
   const res = await fetch(
-    "https://pharma-online-api-production.up.railway.app/api/items/" + id
+    "https://venerable-dragon-eb7237.netlify.app/api/items/" + id
   );
 
   if (!res.ok) {

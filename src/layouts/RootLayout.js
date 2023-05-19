@@ -18,7 +18,7 @@ export default function RootLayout() {
   const LogoutFunctionHandler = async () => {
     // fetch request and if ok the cookie will be removed
     const datas = await axios.post(
-      "https://pharma-online-api-production.up.railway.app/api/users/logout",
+      "https://venerable-dragon-eb7237.netlify.app/api/users/logout",
       {},
       {
         withCredentials: true,
@@ -126,8 +126,7 @@ export default function RootLayout() {
             className="search-button"
             to={
               searchedNameobject
-                ? "https://pharma-online-frontend-production.up.railway.app/" +
-                  id
+                ? "https://sunny-mandazi-9696e0.netlify.app/" + id
                 : ""
             }
             onClick={() => {

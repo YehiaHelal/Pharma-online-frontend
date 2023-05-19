@@ -6,36 +6,24 @@ const LeftSideBar = () => {
       <div className="left-side-bar-categories">
         <p>Our Categories:</p>
         <p>
-          <Link
-            to={
-              "https://pharma-online-frontend-production.up.railway.app/Medications"
-            }
-          >
+          <Link to={"https://sunny-mandazi-9696e0.netlify.app/Medications"}>
             Medications
           </Link>
         </p>
         <p>
-          <Link
-            to={
-              "https://pharma-online-frontend-production.up.railway.app/skinCare"
-            }
-          >
+          <Link to={"https://sunny-mandazi-9696e0.netlify.app/skinCare"}>
             Skin Care
           </Link>
         </p>
         <p>
-          <Link
-            to={
-              "https://pharma-online-frontend-production.up.railway.app/dailyEssentials"
-            }
-          >
+          <Link to={"https://sunny-mandazi-9696e0.netlify.app/dailyEssentials"}>
             Daily Essentials
           </Link>
         </p>
         <p>
           <Link
             to={
-              "https://pharma-online-frontend-production.up.railway.app/vitaminsAndSupplements"
+              "https://sunny-mandazi-9696e0.netlify.app/vitaminsAndSupplements"
             }
           >
             Supplements
