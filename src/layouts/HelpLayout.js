@@ -16,7 +16,7 @@ export default function HelpLayout() {
 
             <nav>
               <NavLink to="faq">View the FAQ</NavLink>
-              <NavLink to="https://sunny-mandazi-9696e0.netlify.app/contact">
+              <NavLink to="https://pharmacyonline.netlify.app/contact">
                 Contact Us
               </NavLink>
             </nav>

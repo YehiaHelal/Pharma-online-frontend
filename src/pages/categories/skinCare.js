@@ -9,7 +9,7 @@ const SkinCare = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       const response = await fetch(
-        "https://venerable-dragon-eb7237.netlify.app/api/items/"
+        "https://pharmacyonline.onrender.com/api/items/"
       );
       const json = await response.json();
 

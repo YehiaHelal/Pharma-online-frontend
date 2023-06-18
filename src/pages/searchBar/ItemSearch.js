@@ -159,7 +159,7 @@ export const itemSearchLoader = async ({ params }) => {
   const { id } = params;
 
   const res = await fetch(
-    "https://venerable-dragon-eb7237.netlify.app/api/items/" + id
+    "https://pharmacyonline.onrender.com/api/items/" + id
   );
 
   if (!res.ok) {

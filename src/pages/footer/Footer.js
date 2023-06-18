@@ -10,30 +10,26 @@ export default function Footer() {
         </div>
         <div className="footer-row">
           <div>
-            <a href="https://sunny-mandazi-9696e0.netlify.app/about">
-              About Us
-            </a>
+            <a href="https://pharmacyonline.netlify.app/about">About Us</a>
           </div>
 
           <div>
-            <a href="https://sunny-mandazi-9696e0.netlify.app/contact">
-              Contact
-            </a>
+            <a href="https://pharmacyonline.netlify.app/contact">Contact</a>
           </div>
           <div>
-            <a href="https://sunny-mandazi-9696e0.netlify.app/help">FAQ Page</a>
+            <a href="https://pharmacyonline.netlify.app/help">FAQ Page</a>
           </div>
           <div>Are you a pharmacy owner?</div>
         </div>
         <div className="footer-row">
           <div>
-            <a href="https://sunny-mandazi-9696e0.netlify.app/contact">
+            <a href="https://pharmacyonline.netlify.app/contact">
               Our Services
             </a>
           </div>
 
           <div>
-            <a href="https://sunny-mandazi-9696e0.netlify.app/contact">
+            <a href="https://pharmacyonline.netlify.app/contact">
               Our branches
             </a>
           </div>

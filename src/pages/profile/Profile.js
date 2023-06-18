@@ -18,7 +18,7 @@ export default function Profile() {
 
   async function handlegetpastorders() {
     const res = await axios.post(
-      "https://venerable-dragon-eb7237.netlify.app/api/orders/getuserorders",
+      "https://pharmacyonline.onrender.com/api/orders/getuserorders",
       { message: "hello" },
       {
         withCredentials: true,
@@ -117,7 +117,7 @@ export const ProfileLoader = async ({ request }) => {
   // console.log(request);
   // try {
   const res = await axios.post(
-    "https://venerable-dragon-eb7237.netlify.app/api/users/profile",
+    "https://pharmacyonline.onrender.com/api/users/profile",
     { message: "hello" },
     {
       withCredentials: true,
@@ -145,7 +145,7 @@ export const ProfileAction = async ({ request }) => {
   };
 
   const datas = await axios.post(
-    "https://venerable-dragon-eb7237.netlify.app/api/users/updateinfo",
+    "https://pharmacyonline.onrender.com/api/users/updateinfo",
     {
       submission,
     },

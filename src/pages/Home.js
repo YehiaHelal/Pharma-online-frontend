@@ -42,7 +42,7 @@ const Home = () => {
   useEffect(() => {
     const fetchItems = async () => {
       const response = await fetch(
-        "https://venerable-dragon-eb7237.netlify.app/api/items/"
+        "https://pharmacyonline.onrender.com/api/items/"
       );
 
       const json = await response.json();
@@ -60,7 +60,7 @@ const Home = () => {
       const checkToken = async () => {
         try {
           const datas = await axios.post(
-            "https://venerable-dragon-eb7237.netlify.app/api/users/checktoken",
+            "https://pharmacyonline.onrender.com/api/users/checktoken",
             {
               message: "checkme",
             },
@@ -120,7 +120,7 @@ const Home = () => {
       <div className="body">
         <div className="offers">
           <div>
-            <a href="https://sunny-mandazi-9696e0.netlify.app/offers">
+            <a href="https://pharmacyonline.netlify.app/offers">
               <div className="first-offer">
                 <img
                   src={require(`./../img/offers/our-app.webp`)}
@@ -136,7 +136,7 @@ const Home = () => {
           </div>
 
           <div>
-            <a href="https://sunny-mandazi-9696e0.netlify.app/offers">
+            <a href="https://pharmacyonline.netlify.app/offers">
               <div className="second-offer">
                 {slidingImagesOffer === 1 && (
                   <img
@@ -181,7 +181,7 @@ const Home = () => {
         </div>
 
         <div className="grid-container-catogeries-img">
-          <a href="https://sunny-mandazi-9696e0.netlify.app/medications">
+          <a href="https://pharmacyonline.netlify.app/medications">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-1.webp`)}
@@ -190,7 +190,7 @@ const Home = () => {
               <p>Medications</p>
             </div>
           </a>
-          <Link to="https://sunny-mandazi-9696e0.netlify.app/skinCare">
+          <Link to="https://pharmacyonline.netlify.app/skinCare">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-2.webp`)}
@@ -199,7 +199,7 @@ const Home = () => {
               <p>Skin Care</p>
             </div>
           </Link>
-          <Link to={"https://sunny-mandazi-9696e0.netlify.app/dailyEssentials"}>
+          <Link to={"https://pharmacyonline.netlify.app/dailyEssentials"}>
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-4.webp`)}
@@ -209,9 +209,7 @@ const Home = () => {
             </div>
           </Link>
           <Link
-            to={
-              "https://sunny-mandazi-9696e0.netlify.app/vitaminsAndSupplements"
-            }
+            to={"https://pharmacyonline.netlify.app/vitaminsAndSupplements"}
           >
             <div className="img">
               <img
@@ -229,7 +227,7 @@ const Home = () => {
 
         <div>
           <a
-            href="https://sunny-mandazi-9696e0.netlify.app/offers"
+            href="https://pharmacyonline.netlify.app/offers"
             className="grid-container-offers2"
           >
             <img
@@ -263,11 +261,7 @@ const Home = () => {
               allItemsOnThirtyPercentOffer.map((item) => {
                 return (
                   <div className="box" key={item._id}>
-                    <a
-                      href={
-                        "https://sunny-mandazi-9696e0.netlify.app/" + item._id
-                      }
-                    >
+                    <a href={"https://pharmacyonline.netlify.app/" + item._id}>
                       <img
                         src={require(`./../img/products/${item.image}`)}
                         alt="imageos"
@@ -357,7 +351,7 @@ const Home = () => {
 export default Home;
 
 // export const allItemLoader = async () => {
-//   const res = await fetch("https://venerable-dragon-eb7237.netlify.app/api/items/");
+//   const res = await fetch("https://pharmacyonline.onrender.com/api/items/");
 
 //   return res.json();
 // };
