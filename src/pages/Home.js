@@ -120,7 +120,7 @@ const Home = () => {
       <div className="body">
         <div className="offers">
           <div>
-            <a href="https://pharmacyonline.netlify.app/offers">
+            <a href="https://pharma-online-frontend.vercel.app/offers">
               <div className="first-offer">
                 <img
                   src={require(`./../img/offers/our-app.webp`)}
@@ -136,7 +136,7 @@ const Home = () => {
           </div>
 
           <div>
-            <a href="https://pharmacyonline.netlify.app/offers">
+            <a href="https://pharma-online-frontend.vercel.app/offers">
               <div className="second-offer">
                 {slidingImagesOffer === 1 && (
                   <img
@@ -181,7 +181,7 @@ const Home = () => {
         </div>
 
         <div className="grid-container-catogeries-img">
-          <a href="https://pharmacyonline.netlify.app/medications">
+          <a href="https://pharma-online-frontend.vercel.app/medications">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-1.webp`)}
@@ -190,7 +190,7 @@ const Home = () => {
               <p>Medications</p>
             </div>
           </a>
-          <Link to="https://pharmacyonline.netlify.app/skinCare">
+          <Link to="https://pharma-online-frontend.vercel.app/skinCare">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-2.webp`)}
@@ -199,7 +199,9 @@ const Home = () => {
               <p>Skin Care</p>
             </div>
           </Link>
-          <Link to={"https://pharmacyonline.netlify.app/dailyEssentials"}>
+          <Link
+            to={"https://pharma-online-frontend.vercel.app/dailyEssentials"}
+          >
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-4.webp`)}
@@ -209,7 +211,9 @@ const Home = () => {
             </div>
           </Link>
           <Link
-            to={"https://pharmacyonline.netlify.app/vitaminsAndSupplements"}
+            to={
+              "https://pharma-online-frontend.vercel.app/vitaminsAndSupplements"
+            }
           >
             <div className="img">
               <img
@@ -227,7 +231,7 @@ const Home = () => {
 
         <div>
           <a
-            href="https://pharmacyonline.netlify.app/offers"
+            href="https://pharma-online-frontend.vercel.app/offers"
             className="grid-container-offers2"
           >
             <img
@@ -261,7 +265,11 @@ const Home = () => {
               allItemsOnThirtyPercentOffer.map((item) => {
                 return (
                   <div className="box" key={item._id}>
-                    <a href={"https://pharmacyonline.netlify.app/" + item._id}>
+                    <a
+                      href={
+                        "https://pharma-online-frontend.vercel.app/" + item._id
+                      }
+                    >
                       <img
                         src={require(`./../img/products/${item.image}`)}
                         alt="imageos"

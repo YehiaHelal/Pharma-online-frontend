@@ -126,7 +126,7 @@ export default function RootLayout() {
             className="search-button"
             to={
               searchedNameobject
-                ? "https://pharmacyonline.netlify.app/" + id
+                ? "https://pharma-online-frontend.vercel.app/" + id
                 : ""
             }
             onClick={() => {

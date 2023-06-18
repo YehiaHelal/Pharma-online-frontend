@@ -181,7 +181,11 @@ const AllItemsComponent = (props) => {
               ItemsShowen0.map((item) => {
                 return (
                   <div className="box" key={item._id}>
-                    <a href={"https://pharmacyonline.netlify.app/" + item._id}>
+                    <a
+                      href={
+                        "https://pharma-online-frontend.vercel.app/" + item._id
+                      }
+                    >
                       <img
                         src={require(`./../../img/products/${item.image}`)}
                         alt="imageos"
