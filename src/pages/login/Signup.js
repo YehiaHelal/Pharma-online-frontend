@@ -134,7 +134,7 @@ export const SignupAction = async ({ request }) => {
   // const dataaa = async () => {
   try {
     const datas = await axios.post(
-      `http://localhost:4000/api/users/signup/`,
+      `https://pharmacyonline.onrender.com/api/users/signup/`,
       { submission },
       {
         withCredentials: true,

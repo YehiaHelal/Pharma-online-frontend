@@ -18,7 +18,7 @@ export default function RootLayout() {
   const LogoutFunctionHandler = async () => {
     // fetch request and if ok the cookie will be removed
     const datas = await axios.post(
-      "http://localhost:4000/api/users/logout",
+      "https://pharmacyonline.onrender.com/api/users/logout",
       {},
       {
         withCredentials: true,
@@ -124,7 +124,11 @@ export default function RootLayout() {
           ></input>
           <NavLink
             className="search-button"
-            to={searchedNameobject ? "http://localhost:3000/" + id : ""}
+            to={
+              searchedNameobject
+                ? "https://pharma-online-frontend.vercel.app/" + id
+                : ""
+            }
             onClick={() => {
               if (searchedNameobject === undefined) {
                 setShowSearchError(true);

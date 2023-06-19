@@ -4,7 +4,7 @@ const Offers = () => {
       <div className="offers-selected-page-main-text">
         please call us to give you more details about our offers, our numbers
         are on the contact page
-        <a href="http://localhost:3000/contact">
+        <a href="https://pharma-online-frontend.vercel.app/contact">
           <div>Contact Page</div>
         </a>
       </div>

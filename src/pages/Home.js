@@ -42,7 +42,9 @@ const Home = () => {
 
   useEffect(() => {
     const fetchItems = async () => {
-      const response = await fetch("http://localhost:4000/api/items/");
+      const response = await fetch(
+        "https://pharmacyonline.onrender.com/api/items/"
+      );
 
       const json = await response.json();
 
@@ -69,7 +71,7 @@ const Home = () => {
       const checkToken = async () => {
         try {
           const datas = await axios.post(
-            "http://localhost:4000/api/users/checktoken",
+            "https://pharmacyonline.onrender.com/api/users/checktoken",
             {
               message: "checkme",
             },
@@ -129,7 +131,7 @@ const Home = () => {
       <div className="body">
         <div className="offers">
           <div>
-            <a href="http://localhost:3000/offers">
+            <a href="https://pharma-online-frontend.vercel.app/offers">
               <div className="first-offer">
                 <img
                   src={require(`./../img/offers/our-app.webp`)}
@@ -145,7 +147,7 @@ const Home = () => {
           </div>
 
           <div>
-            <a href="http://localhost:3000/offers">
+            <a href="https://pharma-online-frontend.vercel.app/offers">
               <div className="second-offer">
                 {slidingImagesOffer === 1 && (
                   <img
@@ -190,7 +192,7 @@ const Home = () => {
         </div>
 
         <div className="grid-container-catogeries-img">
-          <a href="http://localhost:3000/medications">
+          <a href="https://pharma-online-frontend.vercel.app/medications">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-1.webp`)}
@@ -199,7 +201,7 @@ const Home = () => {
               <p>Medications</p>
             </div>
           </a>
-          <Link to="http://localhost:3000/skinCare">
+          <Link to="https://pharma-online-frontend.vercel.app/skinCare">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-2.webp`)}
@@ -208,7 +210,9 @@ const Home = () => {
               <p>Skin Care</p>
             </div>
           </Link>
-          <Link to={"http://localhost:3000/dailyEssentials"}>
+          <Link
+            to={"https://pharma-online-frontend.vercel.app/dailyEssentials"}
+          >
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-4.webp`)}
@@ -217,7 +221,11 @@ const Home = () => {
               <p>Daily Essentials</p>
             </div>
           </Link>
-          <Link to={"http://localhost:3000/vitaminsAndSupplements"}>
+          <Link
+            to={
+              "https://pharma-online-frontend.vercel.app/vitaminsAndSupplements"
+            }
+          >
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-3.webp`)}
@@ -234,7 +242,7 @@ const Home = () => {
 
         <div>
           <a
-            href="http://localhost:3000/offers"
+            href="https://pharma-online-frontend.vercel.app/offers"
             className="grid-container-offers2"
           >
             <img
@@ -268,7 +276,11 @@ const Home = () => {
               allItemsOnThirtyPercentOffer.map((item) => {
                 return (
                   <div className="box" key={item._id}>
-                    <a href={"http://localhost:3000/" + item._id}>
+                    <a
+                      href={
+                        "https://pharma-online-frontend.vercel.app/" + item._id
+                      }
+                    >
                       <img
                         src={require(`./../img/products/${item.image}`)}
                         alt="imageos"
@@ -358,7 +370,7 @@ const Home = () => {
 export default Home;
 
 // export const allItemLoader = async () => {
-//   const res = await fetch("http://localhost:4000/api/items/");
+//   const res = await fetch("https://pharmacyonline.onrender.com/api/items/");
 
 //   return res.json();
 // };

@@ -6,18 +6,28 @@ const LeftSideBar = () => {
       <div className="left-side-bar-categories">
         <p>Our Categories:</p>
         <p>
-          <Link to={"http://localhost:3000/Medications"}>Medications</Link>
+          <Link to={"https://pharma-online-frontend.vercel.app/Medications"}>
+            Medications
+          </Link>
         </p>
         <p>
-          <Link to={"http://localhost:3000/skinCare"}>Skin Care</Link>
+          <Link to={"https://pharma-online-frontend.vercel.app/skinCare"}>
+            Skin Care
+          </Link>
         </p>
         <p>
-          <Link to={"http://localhost:3000/dailyEssentials"}>
+          <Link
+            to={"https://pharma-online-frontend.vercel.app/dailyEssentials"}
+          >
             Daily Essentials
           </Link>
         </p>
         <p>
-          <Link to={"http://localhost:3000/vitaminsAndSupplements"}>
+          <Link
+            to={
+              "https://pharma-online-frontend.vercel.app/vitaminsAndSupplements"
+            }
+          >
             Supplements
           </Link>
         </p>
