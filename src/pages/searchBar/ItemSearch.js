@@ -158,9 +158,7 @@ export default function ItemSearch() {
 export const itemSearchLoader = async ({ params }) => {
   const { id } = params;
 
-  const res = await fetch(
-    "https://pharmacyonline.onrender.com/api/items/" + id
-  );
+  const res = await fetch("http://localhost:4000/api/items/" + id);
 
   if (!res.ok) {
     throw Error("Could not find that item");

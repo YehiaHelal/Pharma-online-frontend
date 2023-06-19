@@ -123,7 +123,7 @@ export const LoginAction = async ({ request }) => {
 
   try {
     const datas = await axios.post(
-      "https://pharmacyonline.onrender.com/api/users/login",
+      "http://localhost:4000/api/users/login",
       {
         submission,
       },
@@ -161,7 +161,7 @@ export const LoginAction = async ({ request }) => {
 // );
 
 // const sendingRequest = async () => {
-//   const response = await fetch("https://pharmacyonline.onrender.com/api/users/");
+//   const response = await fetch("http://localhost:4000/api/users/");
 
 //   const json = await response.json();
 

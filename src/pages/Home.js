@@ -18,6 +18,7 @@ const Home = () => {
   const { user, dispatchUser } = useAuthContext();
   const [slidingImagesOffer, setSlidingImagesOffer] = useState(1);
   const [slidingThirtyOfferItems, setSlidingThirtyOfferItems] = useState(1);
+  const [showAlertNotifcation, setshowAlertNotifcation] = useState(true);
 
   const firstTen = allItems.slice(0, 10);
 
@@ -41,9 +42,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchItems = async () => {
-      const response = await fetch(
-        "https://pharmacyonline.onrender.com/api/items/"
-      );
+      const response = await fetch("http://localhost:4000/api/items/");
 
       const json = await response.json();
 
@@ -56,11 +55,21 @@ const Home = () => {
   }, [dispatcho]);
 
   useEffect(() => {
+    if (showAlertNotifcation) {
+      alert(
+        "Hello! ,Please wait 30 seconds for the Backend/Database server to start working again (because it's a free hosting after 15min of inactivity it stops working)"
+      );
+
+      setshowAlertNotifcation(false);
+    }
+  }, [dispatcho]);
+
+  useEffect(() => {
     if (user) {
       const checkToken = async () => {
         try {
           const datas = await axios.post(
-            "https://pharmacyonline.onrender.com/api/users/checktoken",
+            "http://localhost:4000/api/users/checktoken",
             {
               message: "checkme",
             },
@@ -120,7 +129,7 @@ const Home = () => {
       <div className="body">
         <div className="offers">
           <div>
-            <a href="https://pharma-online-frontend.vercel.app/offers">
+            <a href="http://localhost:3000/offers">
               <div className="first-offer">
                 <img
                   src={require(`./../img/offers/our-app.webp`)}
@@ -136,7 +145,7 @@ const Home = () => {
           </div>
 
           <div>
-            <a href="https://pharma-online-frontend.vercel.app/offers">
+            <a href="http://localhost:3000/offers">
               <div className="second-offer">
                 {slidingImagesOffer === 1 && (
                   <img
@@ -181,7 +190,7 @@ const Home = () => {
         </div>
 
         <div className="grid-container-catogeries-img">
-          <a href="https://pharma-online-frontend.vercel.app/medications">
+          <a href="http://localhost:3000/medications">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-1.webp`)}
@@ -190,7 +199,7 @@ const Home = () => {
               <p>Medications</p>
             </div>
           </a>
-          <Link to="https://pharma-online-frontend.vercel.app/skinCare">
+          <Link to="http://localhost:3000/skinCare">
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-2.webp`)}
@@ -199,9 +208,7 @@ const Home = () => {
               <p>Skin Care</p>
             </div>
           </Link>
-          <Link
-            to={"https://pharma-online-frontend.vercel.app/dailyEssentials"}
-          >
+          <Link to={"http://localhost:3000/dailyEssentials"}>
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-4.webp`)}
@@ -210,11 +217,7 @@ const Home = () => {
               <p>Daily Essentials</p>
             </div>
           </Link>
-          <Link
-            to={
-              "https://pharma-online-frontend.vercel.app/vitaminsAndSupplements"
-            }
-          >
+          <Link to={"http://localhost:3000/vitaminsAndSupplements"}>
             <div className="img">
               <img
                 src={require(`./../img/catogeries/category-3.webp`)}
@@ -231,7 +234,7 @@ const Home = () => {
 
         <div>
           <a
-            href="https://pharma-online-frontend.vercel.app/offers"
+            href="http://localhost:3000/offers"
             className="grid-container-offers2"
           >
             <img
@@ -265,11 +268,7 @@ const Home = () => {
               allItemsOnThirtyPercentOffer.map((item) => {
                 return (
                   <div className="box" key={item._id}>
-                    <a
-                      href={
-                        "https://pharma-online-frontend.vercel.app/" + item._id
-                      }
-                    >
+                    <a href={"http://localhost:3000/" + item._id}>
                       <img
                         src={require(`./../img/products/${item.image}`)}
                         alt="imageos"
@@ -359,7 +358,7 @@ const Home = () => {
 export default Home;
 
 // export const allItemLoader = async () => {
-//   const res = await fetch("https://pharmacyonline.onrender.com/api/items/");
+//   const res = await fetch("http://localhost:4000/api/items/");
 
 //   return res.json();
 // };

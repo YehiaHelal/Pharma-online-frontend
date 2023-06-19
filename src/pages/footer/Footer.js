@@ -10,34 +10,24 @@ export default function Footer() {
         </div>
         <div className="footer-row">
           <div>
-            <a href="https://pharma-online-frontend.vercel.app/about">
-              About Us
-            </a>
+            <a href="http://localhost:3000/about">About Us</a>
           </div>
 
           <div>
-            <a href="https://pharma-online-frontend.vercel.app/contact">
-              Contact
-            </a>
+            <a href="http://localhost:3000/contact">Contact</a>
           </div>
           <div>
-            <a href="https://pharma-online-frontend.vercel.app/help">
-              FAQ Page
-            </a>
+            <a href="http://localhost:3000/help">FAQ Page</a>
           </div>
           <div>Are you a pharmacy owner?</div>
         </div>
         <div className="footer-row">
           <div>
-            <a href="https://pharma-online-frontend.vercel.app/contact">
-              Our Services
-            </a>
+            <a href="http://localhost:3000/contact">Our Services</a>
           </div>
 
           <div>
-            <a href="https://pharma-online-frontend.vercel.app/contact">
-              Our branches
-            </a>
+            <a href="http://localhost:3000/contact">Our branches</a>
           </div>
         </div>
         <div className="footer-row">
