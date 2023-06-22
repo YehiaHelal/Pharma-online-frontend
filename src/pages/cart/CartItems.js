@@ -148,7 +148,7 @@ const CartItems = () => {
     // fetch request and if ok the cookie will be removed
 
     const response = await axios.post(
-      "https://pharmacyonline.onrender.com/api/orders/cartorder",
+      "https://www.rpharmacybk.shoponlinemarket.cloud/api/orders/cartorder",
       { OrderDetails },
       {
         withCredentials: true,

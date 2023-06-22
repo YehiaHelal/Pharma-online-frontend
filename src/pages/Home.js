@@ -18,7 +18,7 @@ const Home = () => {
   const { user, dispatchUser } = useAuthContext();
   const [slidingImagesOffer, setSlidingImagesOffer] = useState(1);
   const [slidingThirtyOfferItems, setSlidingThirtyOfferItems] = useState(1);
-  const [showAlertNotifcation, setshowAlertNotifcation] = useState(true);
+  // const [showAlertNotifcation, setshowAlertNotifcation] = useState(true);
 
   const firstTen = allItems.slice(0, 10);
 
@@ -43,7 +43,7 @@ const Home = () => {
   useEffect(() => {
     const fetchItems = async () => {
       const response = await fetch(
-        "https://pharmacyonline.onrender.com/api/items/"
+        "https://www.rpharmacybk.shoponlinemarket.cloud/api/items/"
       );
 
       const json = await response.json();
@@ -56,22 +56,22 @@ const Home = () => {
     fetchItems();
   }, [dispatcho]);
 
-  useEffect(() => {
-    if (showAlertNotifcation) {
-      alert(
-        "Hello! ,Please wait 30 seconds for the Backend/Database server to start working again (because it's a free hosting after 15min of inactivity it stops working)"
-      );
+  // useEffect(() => {
+  //   if (showAlertNotifcation) {
+  //     alert(
+  //       "Hello! ,Please wait 30 seconds for the Backend/Database server to start working again (because it's a free hosting after 15min of inactivity it stops working)"
+  //     );
 
-      setshowAlertNotifcation(false);
-    }
-  }, [dispatcho]);
+  //     setshowAlertNotifcation(false);
+  //   }
+  // }, [dispatcho]);
 
   useEffect(() => {
     if (user) {
       const checkToken = async () => {
         try {
           const datas = await axios.post(
-            "https://pharmacyonline.onrender.com/api/users/checktoken",
+            "https://www.rpharmacybk.shoponlinemarket.cloud/api/users/checktoken",
             {
               message: "checkme",
             },
@@ -370,7 +370,7 @@ const Home = () => {
 export default Home;
 
 // export const allItemLoader = async () => {
-//   const res = await fetch("https://pharmacyonline.onrender.com/api/items/");
+//   const res = await fetch("https://www.rpharmacybk.shoponlinemarket.cloud/api/items/");
 
 //   return res.json();
 // };

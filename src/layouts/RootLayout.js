@@ -18,7 +18,7 @@ export default function RootLayout() {
   const LogoutFunctionHandler = async () => {
     // fetch request and if ok the cookie will be removed
     const datas = await axios.post(
-      "https://pharmacyonline.onrender.com/api/users/logout",
+      "https://www.rpharmacybk.shoponlinemarket.cloud/api/users/logout",
       {},
       {
         withCredentials: true,

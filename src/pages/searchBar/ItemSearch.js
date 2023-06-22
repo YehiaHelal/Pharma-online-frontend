@@ -159,7 +159,7 @@ export const itemSearchLoader = async ({ params }) => {
   const { id } = params;
 
   const res = await fetch(
-    "https://pharmacyonline.onrender.com/api/items/" + id
+    "https://www.rpharmacybk.shoponlinemarket.cloud/api/items/" + id
   );
 
   if (!res.ok) {

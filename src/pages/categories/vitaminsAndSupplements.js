@@ -9,7 +9,7 @@ const VitaminsAndSupplements = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       const response = await fetch(
-        "https://pharmacyonline.onrender.com/api/items/"
+        "https://www.rpharmacybk.shoponlinemarket.cloud/api/items/"
       );
       const json = await response.json();
 

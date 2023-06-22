@@ -18,7 +18,7 @@ export default function Profile() {
 
   async function handlegetpastorders() {
     const res = await axios.post(
-      "https://pharmacyonline.onrender.com/api/orders/getuserorders",
+      "https://www.rpharmacybk.shoponlinemarket.cloud/api/orders/getuserorders",
       { message: "hello" },
       {
         withCredentials: true,
@@ -117,7 +117,7 @@ export const ProfileLoader = async ({ request }) => {
   // console.log(request);
   // try {
   const res = await axios.post(
-    "https://pharmacyonline.onrender.com/api/users/profile",
+    "https://www.rpharmacybk.shoponlinemarket.cloud/api/users/profile",
     { message: "hello" },
     {
       withCredentials: true,
@@ -145,7 +145,7 @@ export const ProfileAction = async ({ request }) => {
   };
 
   const datas = await axios.post(
-    "https://pharmacyonline.onrender.com/api/users/updateinfo",
+    "https://www.rpharmacybk.shoponlinemarket.cloud/api/users/updateinfo",
     {
       submission,
     },
